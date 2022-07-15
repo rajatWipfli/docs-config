@@ -15,7 +15,7 @@
     }
   },
   "bin": {
-    "d": "runner 'npm run docs'"
+    "docs-config": "./runner.js"
   },
   "scripts": {
     "docs": "jsdoc -c jsDoc.json",

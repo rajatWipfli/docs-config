@@ -47,10 +47,7 @@
     "search": true,
     "commonNav": true,
     "typedefs": true,
-    "scripts": [
-      "./addon.css",
-      "./addon.js"
-    ],
+    "scripts": [],
     "sectionOrder": [
       "Tutorials",
       "Classes",
