@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const necessaryFolders = ['documentation'];
+const necessaryFolders = ['documentation', 'documentation/assets', 'documentation/scripts', 'documentation/styles'];
 function createNecessaryFolders(root) {
   necessaryFolders.forEach(folderName => {
     if (!fs.existsSync(path.join(root, folderName))) {
@@ -20,9 +20,9 @@ function run() {
   if (!command[0]) {
     return;
   }
-  if (command === 'setup') {
-    createNecessaryFolders(process.cwd);
-    createSampleFiles(process.cwd);
+  if (command[0] === 'setup') {
+    createNecessaryFolders(process.cwd());
+    createSampleFiles(process.cwd());
   }
 }
 
