@@ -6,7 +6,7 @@
   },
   "files": [
     "./suitescriptJsDocPlugin.js",
-    "config.json",
+    "config.js",
     "sample.md",
     "runner.js"
   ],
