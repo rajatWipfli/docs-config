@@ -6,7 +6,7 @@
   "recurseDepth": 10,
   "source": {
     "include": [
-      "./FileCabinet/SuiteApps/com.wipfli.concurconnect"
+      "./FileCabinet"
     ],
     "excludePattern": "(node_modules/|docs)"
   },
@@ -42,14 +42,14 @@
   },
   "docdash": {
     "meta": {
-      "title": "ExpenseConnect Technical Documentation"
+      "title": "Technical Documentation"
     },
     "search": true,
     "commonNav": true,
     "typedefs": true,
     "scripts": [
-      "/styles/addon.css",
-      "/scripts/addon.js"
+      "./addon.css",
+      "./addon.js"
     ],
     "sectionOrder": [
       "Tutorials",
