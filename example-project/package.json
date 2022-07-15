@@ -1,0 +1,13 @@
+{
+  "name": "example-project",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "docs": "jsDoc -c node_modules/docs-config/config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "docs-config": "../"
+  }
+}
