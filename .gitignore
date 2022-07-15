@@ -1,0 +1,5 @@
+*/.cache/*
+.idea/*
+project.json
+node_modules
+docs
