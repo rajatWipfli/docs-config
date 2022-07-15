@@ -1,4 +1,6 @@
-{
+const path = require('path');
+
+module.exports = {
   "plugins": [
     "plugins/markdown",
     "./suitescriptJsDocPlugin.js"
@@ -6,7 +8,7 @@
   "recurseDepth": 10,
   "source": {
     "include": [
-      "./FileCabinet"
+      path.resolve(process.cwd(), "FileCabinet")
     ],
     "excludePattern": "(node_modules/|docs)"
   },
@@ -22,7 +24,7 @@
     "default": {
       "staticFiles": {
         "include": [
-          "./documentation"
+          path.resolve(process.cwd(), "documentation")
         ],
         "includePattern": ".\\.(jpeg|png|gif|mp4|css|svg|js)"
       }
@@ -38,7 +40,7 @@
     "private": true,
     "recurse": true,
     "template": "./node_modules/docdash",
-    "tutorials": "./documentation"
+    "tutorials": path.resolve(process.cwd(), "documentation")
   },
   "docdash": {
     "meta": {
@@ -62,4 +64,4 @@
   "markdown": {
     "gfm": true
   }
-}
+};

@@ -1,33 +1,17 @@
 {
   "private": true,
   "name": "docs-config",
-  "watch": {
-    "docs": {
-      "patterns": [
-        "documentation",
-        "FileCabinet/",
-        "suitescriptJsDocPlugin.js",
-        "jsDoc.json"
-      ],
-      "extensions": "js,html,md,css,json",
-      "quiet": false,
-      "runOnChangeOnly": false
-    }
-  },
   "bin": {
     "docs-config": "./runner.js"
   },
-  "scripts": {
-    "docs": "jsdoc -c jsDoc.json",
-    "watch-docs": "npm-watch docs"
-  },
   "files": [
     "./suitescriptJsDocPlugin.js",
-    "config.json"
+    "config.json",
+    "sample.md",
+    "runner.js"
   ],
-  "devDependencies": {
+  "peerDependencies": {
     "docdash": "github:rajatWipfli/docdash",
-    "jsdoc": "^3.6.10",
-    "npm-watch": "^0.11.0"
+    "jsdoc": "^3.6.10"
   }
 }
