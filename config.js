@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   "plugins": [
     "plugins/markdown",
-    "./suitescriptJsDocPlugin.js"
+    path.resolve(__dirname, "./suitescriptJsDocPlugin.js")
   ],
   "recurseDepth": 10,
   "source": {

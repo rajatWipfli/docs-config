@@ -2,17 +2,28 @@
 
 const fs = require('fs');
 const path = require('path');
+const config = require('./config');
+// Replace the --documentation-- part with the correct tutorial path from config
+const necessaryFolders = ['--documentation--', '--documentation--/assets', '--documentation--/scripts', '--documentation--/styles'];
+function createNecessaryFolders(root, config) {
+  const isOutsideRoot = path.isAbsolute(config.opts.tutorials) && !path.resolve(config.opts.tutorials).includes(path.resolve(root));
+  // If Outside the root dir, skip creation of files for safety against overwriting user files
+  if (isOutsideRoot) {
+    return;
+  }
 
-const necessaryFolders = ['documentation', 'documentation/assets', 'documentation/scripts', 'documentation/styles'];
-function createNecessaryFolders(root) {
   necessaryFolders.forEach(folderName => {
-    if (!fs.existsSync(path.join(root, folderName))) {
-      fs.mkdirSync(path.join(root, folderName));
+    const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials, folderName.replace('--documentation--', '')) : config.opts.tutorials;
+    if (!fs.existsSync(tutorialPath)) {
+      fs.mkdirSync(tutorialPath);
     }
   });
 }
-function createSampleFiles(root) {
-  fs.copyFileSync(path.resolve('./sample.md'), path.join(root, 'documentation', 'sample.md'));
+
+function createSampleFiles(root, config) {
+  const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials.replace('--documentation--', '')) : config.opts.tutorials;
+
+  fs.copyFileSync(path.resolve(__dirname, './sample.md'), path.join(tutorialPath, 'sample.md'));
 }
 
 function run() {
@@ -21,8 +32,8 @@ function run() {
     return;
   }
   if (command[0] === 'setup') {
-    createNecessaryFolders(process.cwd());
-    createSampleFiles(process.cwd());
+    createNecessaryFolders(process.cwd(), config);
+    createSampleFiles(process.cwd(), config);
   }
 }
 
