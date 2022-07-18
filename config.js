@@ -1,4 +1,17 @@
 const path = require('path');
+const Logger = require('../../src/Logger');
+
+function getDocdashPath() {
+  try {
+    const docdashMainPath = require.resolve('docdash');
+    const docdashPath = docdashMainPath.slice(0,  docdashMainPath.indexOf('docdash') + 'docdash'.length);
+    console.debug(docdashPath);
+    return docdashPath;
+  } catch (e) {
+    Logger.warn('Failed to resolve docdash theme', e);
+    return '';
+  }
+}
 
 module.exports = {
   "plugins": [
@@ -39,7 +52,7 @@ module.exports = {
     "encoding": "utf8",
     "private": true,
     "recurse": true,
-    "template": "./node_modules/docdash",
+    "template": getDocdashPath(),
     "tutorials": path.resolve(process.cwd(), "documentation")
   },
   "docdash": {
