@@ -10,7 +10,7 @@
     "sample.md",
     "runner.js"
   ],
-  "peerDependencies": {
+  "dependencies": {
     "docdash": "github:rajatWipfli/docdash",
     "jsdoc": "^3.6.10"
   }
