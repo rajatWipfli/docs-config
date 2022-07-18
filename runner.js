@@ -13,9 +13,10 @@ function createNecessaryFolders(root, config) {
   }
 
   necessaryFolders.forEach(folderName => {
-    const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials, folderName.replace('--documentation--', '')) : config.opts.tutorials;
-    if (!fs.existsSync(tutorialPath)) {
-      fs.mkdirSync(tutorialPath);
+    const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials) : config.opts.tutorials;
+    const folderPath = path.join(tutorialPath, folderName.replace('--documentation--', ''));
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath);
     }
   });
 }
