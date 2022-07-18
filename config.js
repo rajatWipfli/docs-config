@@ -8,7 +8,7 @@ module.exports = {
   "recurseDepth": 10,
   "source": {
     "include": [
-      path.resolve(process.cwd(), "FileCabinet")
+      path.resolve(process.cwd(), "src/FileCabinet")
     ],
     "excludePattern": "(node_modules/|docs)"
   },
