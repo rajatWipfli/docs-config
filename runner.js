@@ -11,9 +11,12 @@ function createNecessaryFolders(root, config) {
   if (isOutsideRoot) {
     return;
   }
-
+  const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials) : config.opts.tutorials;
+  // Skip creation of files when folder already exists
+  if (fs.existsSync(tutorialPath)) {
+    return;
+  }
   necessaryFolders.forEach(folderName => {
-    const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials) : config.opts.tutorials;
     const folderPath = path.join(tutorialPath, folderName.replace('--documentation--', ''));
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath);
@@ -22,8 +25,11 @@ function createNecessaryFolders(root, config) {
 }
 
 function createSampleFiles(root, config) {
-  const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials.replace('--documentation--', '')) : config.opts.tutorials;
-
+  const tutorialPath = !path.isAbsolute(config.opts.tutorials) ? path.join(root, config.opts.tutorials) : config.opts.tutorials;
+  // Skip creation of files when folder already exists
+  if (fs.existsSync(tutorialPath)) {
+    return;
+  }
   fs.copyFileSync(path.resolve(__dirname, './sample.md'), path.join(tutorialPath, 'sample.md'));
 }
 

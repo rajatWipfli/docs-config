@@ -5,7 +5,6 @@ function getDocdashPath() {
   try {
     const docdashMainPath = require.resolve('docdash');
     const docdashPath = docdashMainPath.slice(0,  docdashMainPath.indexOf('docdash') + 'docdash'.length);
-    console.debug(docdashPath);
     return docdashPath;
   } catch (e) {
     Logger.warn('Failed to resolve docdash theme', e);
