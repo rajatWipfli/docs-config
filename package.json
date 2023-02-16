@@ -8,7 +8,8 @@
     "./suitescriptJsDocPlugin.js",
     "config.js",
     "sample.md",
-    "runner.js"
+    "runner.js",
+    "Logger.js"
   ],
   "dependencies": {
     "docdash": "github:rajatWipfli/docdash",
