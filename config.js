@@ -1,5 +1,5 @@
 const path = require('path');
-const Logger = require('../../src/Logger');
+const Logger = require('./Logger');
 
 function getDocdashPath() {
   try {
