@@ -12,6 +12,8 @@
   ],
   "dependencies": {
     "docdash": "github:rajatWipfli/docdash",
-    "jsdoc": "^3.6.10"
+    "jsdoc": "^3.6.10",
+    "triple-beam": "^1.3.0",
+    "winston": "^3.8.2"
   }
 }
